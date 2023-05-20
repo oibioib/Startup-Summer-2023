@@ -1,3 +1,3 @@
-import { getApiHeaders, isAuthentificationTokenExpired } from './helpers';
+import { getApiHeaders, getPaymentInfo, isAuthentificationTokenExpired, isNumber } from './helpers';
 
-export { getApiHeaders, isAuthentificationTokenExpired };
+export { isNumber, getApiHeaders, getPaymentInfo, isAuthentificationTokenExpired };

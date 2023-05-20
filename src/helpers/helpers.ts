@@ -4,6 +4,11 @@ import { API_SETTINGS, APP_SETTINGS, STORAGE_SETTINGS } from '@constants';
 const { API_CLIENT_SECRET, PROXY_X_SECRET_KEY } = API_SETTINGS.API_CREDENTIALS;
 const { KEYS } = STORAGE_SETTINGS;
 
+const isNumber = (str: string) => {
+  if (typeof str !== 'string') return false;
+  return !isNaN(+str) && !isNaN(parseFloat(str)) && !/^\s+|\s+$/g.test(str);
+};
+
 const getAuthentificationData = () => {
   const authentificationData = getData<AuthentificationData>(KEYS.AUTHENTIFICATION);
 
@@ -35,4 +40,19 @@ const getApiHeaders = () => ({
   Authorization: getAuthentificationToken(),
 });
 
-export { getAuthentificationToken, getApiHeaders, getRefreshToken, isAuthentificationTokenExpired };
+const getPaymentInfo = (from: number, to: number, currency: string) => {
+  const { SALARY, NO_SALARY, FROM, TO } = APP_SETTINGS.PAYMENT;
+  if (from && to) return `${SALARY} ${from} - ${to} ${currency}`;
+  if (from) return `${SALARY} ${FROM} ${from} ${currency}`;
+  if (to) return `${SALARY} ${TO} ${to} ${currency}`;
+  return NO_SALARY;
+};
+
+export {
+  isNumber,
+  getAuthentificationToken,
+  getApiHeaders,
+  getPaymentInfo,
+  getRefreshToken,
+  isAuthentificationTokenExpired,
+};
