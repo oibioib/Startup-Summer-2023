@@ -2,6 +2,8 @@ export { default as AddToFavoritesButton } from './AddToFavoritesButton/AddToFav
 export { default as Empty } from './Empty/Empty';
 export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
 export { default as Loader } from './Loader/Loader';
+export { default as Logo } from './Logo/Logo';
+export { default as Nav } from './Nav/Nav';
 export { default as Pagination } from './Pagination/Pagination';
 export { default as VacancyRichText } from './VacancyRichText/VacancyRichText';
 export { default as VacancyShort } from './VacancyShort/VacancyShort';
