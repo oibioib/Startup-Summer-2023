@@ -1,4 +1,4 @@
-# Paralect Startup Summer 2023
+# Paralect Startup Summer 2023 ☀️
 
 ## Task
 
